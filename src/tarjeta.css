@@ -1,22 +1,41 @@
+
+@font-face {
+    font-family: lora ;
+    src:url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
   justify-items: center;
 }
 
+:root {
+  --card-border-color: #274C56;
+  --card-border-thickness: 10px;
+  --card-border-radius: 10px;
+
+  --bars-background: #F6E2B3;
+
+  --inner-borders-color: #D96C2C;
+  --inner-borders-thickness: 3px;
+}
+
+/* CARTA*/
+
 .project-card {
+  font-family: 'IM Fell English SC', serif;
   position: relative;
   width: 320px;
   min-height: 500px;
-  padding: 12px;
   background: #E7A84E;
-  border: 4px solid #274C56;
-  border-radius: 12px;
+  border-radius: var(--card-border-radius);
+  /* MARCO GRUESO INTERIOR */
   box-shadow:
-    8px 8px 0 #274C56;
+    inset 0 0 0 var(--card-border-thickness)
+    var(--card-border-color);
+  padding: var(--card-border-thickness);
   box-sizing: border-box;
   transform-style: preserve-3d;
   transition:
@@ -26,15 +45,11 @@
   overflow: hidden;
 }
 
-.project-card:hover {
-  box-shadow: 12px 12px 0 #274C56;
-}
-
 .project-shine {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 5;
+  z-index: 20;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -46,9 +61,20 @@
 .card-header {
   display: flex;
   align-items: center;
+  
   justify-content: space-between;
-  padding: 4px 6px 10px;
+  margin: 7px;
+  margin-bottom: 0;
+  padding: 6px 8px;
   color: #274C56;
+  /* MARCO ROJO */
+  box-shadow:
+    0 0 0 var(--inner-borders-thickness)
+    var(--inner-borders-color);
+  border-radius: 3px / 10px;
+  background: var(--bars-background);
+  position: relative;
+  z-index: 2;
 }
 
 .card-header h3 {
@@ -62,13 +88,21 @@
 .card-symbol {
   font-size: 20px;
 }
+
 .project-image {
-  width: 100%;
+  position: relative;
+  width: calc(100% - 14px);
   height: 220px;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 6px;
   overflow: hidden;
-  border-bottom: 3px solid #274C56;
   background: #274C56;
-   box-sizing: border-box;
+  /* MARCO ROJO */
+  box-shadow:
+    0 0 0 var(--inner-borders-thickness)
+    var(--inner-borders-color);
+  box-sizing: border-box;
 }
 
 .project-image img {
@@ -76,16 +110,20 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
- filter: blur(5px);
+  filter: blur(5px);
   transform: scale(1.05);
-  transition: filter 0.4s ease, transform 0.4s ease;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease;
 }
 
 .project-card:hover .project-image img {
   filter: blur(0);
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
+
+
+/* TEXTO SOBRE LA IMAGEN*/
 
 .preview-overlay {
   position: absolute;
@@ -98,34 +136,50 @@
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 2px;
-  transition:
-    opacity 0.35s ease;
+  transition: opacity 0.35s ease;
 }
 
 .project-card:hover .preview-overlay {
   opacity: 0;
 }
 
+
+/* BARRA TYPE */
+
 .card-type {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
-  padding: 6px 10px;
-  background: #F6E2B3;
-  border: 2px solid #274C56;
-  border-radius: 5px;
+  margin: 7px;
+  padding: 5px 8px;
+  background: var(--bars-background);
   color: #274C56;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
+  box-shadow:
+    0 0 0 var(--inner-borders-thickness)
+    var(--inner-borders-color);
+  border-radius: 3px / 10px;
 }
 
+
+/* DESCRIPCIÓN */
+
 .card-description {
-  padding: 12px 8px 8px;
+  margin: 7px;
+  padding: 10px;
   color: #274C56;
-  font-size: 14px;
+  background: var(--bars-background);
+  font-size: 12px;
   line-height: 1.4;
+  text-decoration: wavy;
+  box-shadow:
+    0 0 0 var(--inner-borders-thickness)
+    var(--inner-borders-color);
+  border-radius: 3px / 10px;
+  text-transform: none;
+ font-family: lora;
 }
 
 .card-description p {
@@ -135,16 +189,23 @@
 .card-footer {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
-  border-top: 2px solid #274C56;
+  align-items: center;
+  margin: 7px;
+  padding: 6px 8px;
+  background: var(--bars-background);
   color: #274C56;
   font-size: 10px;
   font-weight: bold;
   letter-spacing: 1px;
+  box-shadow:
+    0 0 0 var(--inner-borders-thickness)
+    var(--inner-borders-color);
+  border-radius: 3px / 10px;
 }
+
 
 .card-link {
   position: absolute;
   inset: 0;
-  z-index: 10;
+  z-index: 30;
 }

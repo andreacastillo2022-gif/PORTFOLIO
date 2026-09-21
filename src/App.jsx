@@ -119,7 +119,7 @@ function App() {
 
       <ProjectCard
         title="Selector de colores"
-        description="Una herramienta para obtener códigos de colores."
+        description="Con esta herramienta podrás encontrar todas las combinaciones de colores existentes. Ideal para artistas que necesiten la teoria del color para crear sus mejores obras."
         image={color}
       />
 
