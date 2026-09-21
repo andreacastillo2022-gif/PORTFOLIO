@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
   const [transform, setTransform] = useState("");
   const [shine, setShine] = useState({
@@ -38,6 +37,7 @@ function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
   };
 
   return (
+
     <div
       className="project-card"
       style={{ transform }}
@@ -104,6 +104,7 @@ function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
       />
 
     </div>
+
   );
 }
 

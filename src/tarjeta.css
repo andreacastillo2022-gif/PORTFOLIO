@@ -5,31 +5,54 @@
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+
+
 :root {
-  --card-border-color: #274C56;
+  --card-border-color: #080a0a;
   --card-border-thickness: 10px;
   --card-border-radius: 10px;
 
-  --bars-background: #F6E2B3;
+  --bars-background: #dce0e2;
 
-  --inner-borders-color: #D96C2C;
+  --inner-borders-color: #dce0e2;
+  --inner-borders-color-title: 
+  repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.012) 0px,
+    rgba(255,255,255,0.012) 2px,
+    transparent 2px,
+    transparent 6px
+  ),
+  linear-gradient(
+    135deg,
+    #666,
+    #ddd 30%,
+    #fff 45%,
+    #999 60%,
+    #ddd 80%,
+    #666
+  );
+
+ 
   --inner-borders-thickness: 3px;
 }
 
 /* CARTA*/
 
 .project-card {
-  font-family: 'IM Fell English SC', serif;
+  font-family: lora;
   position: relative;
   width: 320px;
-  min-height: 500px;
-  background: #E7A84E;
+  min-height: 450px;
+  background-image: url(./assets/marcelabr-texture-1818072.jpg);
   border-radius: var(--card-border-radius);
   /* MARCO GRUESO INTERIOR */
   box-shadow:
@@ -42,7 +65,10 @@
     transform 0.15s ease-out,
     box-shadow 0.2s ease;
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
+  text-transform: none;
+  border: 3px solid #080a0a;
+
 }
 
 .project-shine {
@@ -61,28 +87,30 @@
 .card-header {
   display: flex;
   align-items: center;
-  
   justify-content: space-between;
-  margin: 7px;
+  margin: 4px;
+  margin-top: 7px;
   margin-bottom: 0;
-  padding: 6px 8px;
+  padding: 3px 8px;
   color: #274C56;
   /* MARCO ROJO */
-  box-shadow:
-    0 0 0 var(--inner-borders-thickness)
-    var(--inner-borders-color);
-  border-radius: 3px / 10px;
-  background: var(--bars-background);
+box-shadow:
+  0 0 0 2px #97aaa0,
+    inset 2px 2px 0 #050607,
+    inset 0 0 6px 4px rgba(0, 0, 0, 0.55);
+  border-radius: 10px / 25px;
+  background: var(--inner-borders-color-title);
   position: relative;
   z-index: 2;
 }
 
 .card-header h3 {
-  margin: 0;
-  font-size: 20px;
+  margin: 0 3px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
+  color: #080a0a;
+  text-transform: none;
 }
 
 .card-symbol {
@@ -91,17 +119,19 @@
 
 .project-image {
   position: relative;
-  width: calc(100% - 14px);
-  height: 220px;
-  margin-left: 7px;
+  width: calc(100% - 23px);
+  height: 210px;
+  margin-left: 12px;
   margin-right: 7px;
-  margin-top: 6px;
+  margin-top: 4px;
   overflow: hidden;
   background: #274C56;
   /* MARCO ROJO */
-  box-shadow:
-    0 0 0 var(--inner-borders-thickness)
-    var(--inner-borders-color);
+ box-shadow:
+    0 0 0 2px #97aaa0,
+    inset 2px 2px 0 #dce0e2,
+    inset -3px -3px 0 #aa9393,
+    inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
   box-sizing: border-box;
 }
 
@@ -150,35 +180,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 7px;
-  padding: 5px 8px;
-  background: var(--bars-background);
-  color: #274C56;
+  margin: 4px 5px;
+  margin-bottom: 4px;
+  padding: 7px 8px;
+  background: var(--inner-borders-color-title);
+  color: #0e1011;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
   box-shadow:
-    0 0 0 var(--inner-borders-thickness)
-    var(--inner-borders-color);
-  border-radius: 3px / 10px;
+  0 0 0 2px #97aaa0,
+    inset 2px 2px 0 #333436,
+    inset 0 0 6px 4px rgba(34, 34, 34, 0.55);
+  border-radius: 10px / 25px;
 }
 
 
 /* DESCRIPCIÓN */
 
 .card-description {
-  margin: 7px;
+  margin: 12px;
+  margin-top: 2px;
   padding: 10px;
+  padding-bottom: 50px;
   color: #274C56;
   background: var(--bars-background);
   font-size: 12px;
   line-height: 1.4;
+  font-style: italic;
+  word-spacing: 2px;
+  text-align: left;
   text-decoration: wavy;
-  box-shadow:
-    0 0 0 var(--inner-borders-thickness)
-    var(--inner-borders-color);
-  border-radius: 3px / 10px;
+   box-shadow:
+    0 0 0 2px #97aaa0,
+    inset -3px -3px 0 #817777,
+    inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
   text-transform: none;
+  border-radius: 1%;
  font-family: lora;
 }
 
@@ -190,19 +228,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 7px;
-  padding: 6px 8px;
-  background: var(--bars-background);
-  color: #274C56;
+  padding: 12px 30px;
+  margin: 0;
+  background: var(--card-border-color);
+  color: #948282;
   font-size: 10px;
   font-weight: bold;
   letter-spacing: 1px;
-  box-shadow:
-    0 0 0 var(--inner-borders-thickness)
-    var(--inner-borders-color);
-  border-radius: 3px / 10px;
+  border: #080a0a;
+  border-radius: -50% -50% 0 0;
 }
-
 
 .card-link {
   position: absolute;

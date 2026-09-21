@@ -111,7 +111,7 @@ function App() {
       </section>
 
   
-    <section className="projects">
+    <section>
 
       <h2>Mis proyectos</h2>
 
@@ -119,7 +119,8 @@ function App() {
 
       <ProjectCard
         title="Selector de colores"
-        description="Con esta herramienta podrás encontrar todas las combinaciones de colores existentes. Ideal para artistas que necesiten la teoria del color para crear sus mejores obras."
+        description="Con esta herramienta podrás encontrar todas las combinaciones de colores existentes.
+        Ideal para artistas que necesiten la teoria del color para crear sus mejores obras"
         image={color}
       />
 
