@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ProjectCard({ title, description, image, link }) {
+function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
   const [transform, setTransform] = useState("");
   const [shine, setShine] = useState({
     x: 50,
@@ -44,30 +44,63 @@ function ProjectCard({ title, description, image, link }) {
       onMouseLeave={handleMouseLeave}
     >
 
+      {/* REFLEJO */}
       <div
         className="project-shine"
         style={{
           background: `radial-gradient(
             circle at ${shine.x}% ${shine.y}%,
-            rgba(255,255,255,0.45),
-            transparent 35%
+            rgba(255,255,255,0.4),
+            transparent 30%
           )`,
         }}
       />
 
-      <div className="project-image">
-        <img src={image} alt={`Preview de ${title}`} />
-      </div>
-
-      <div className="project-info">
+      {/* NOMBRE */}
+      <div className="card-header">
         <h3>{title}</h3>
-
-        <p>{description}</p>
-
-        <a href={link} target="_blank" rel="noreferrer">
-          Ver proyecto →
-        </a>
+        <span className="card-symbol">✦</span>
       </div>
+
+      {/* IMAGEN */}
+      <div className="project-image">
+
+        <img
+          src={image}
+          alt={`Preview de ${title}`}
+        />
+
+        <div className="preview-overlay">
+          <span>VER PROYECTO</span>
+        </div>
+
+      </div>
+
+      {/* TIPO */}
+      <div className="card-type">
+        <span>{type}</span>
+        <span>✦</span>
+      </div>
+
+      {/* DESCRIPCIÓN */}
+      <div className="card-description">
+        <p>{description}</p>
+      </div>
+
+      {/* FOOTER */}
+      <div className="card-footer">
+        <span>ANDY</span>
+        <span>2026</span>
+      </div>
+
+      {/* LINK */}
+      <a
+        className="card-link"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Ver proyecto ${title}`}
+      />
 
     </div>
   );

@@ -7,6 +7,7 @@ import { LiaCertificateSolid } from "react-icons/lia";
 import { PiGearSixBold } from "react-icons/pi";
 import ProjectCard from "./tarjeta";
 import color from "./assets/color.png";
+import "./tarjeta.css";
 
 function App() {
   
