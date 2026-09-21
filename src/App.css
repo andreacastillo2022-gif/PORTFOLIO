@@ -1,22 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Roboto:wght@300;400;500&display=swap');
+
+
 #root{
   display: flex;
   flex-direction: column;
-  align-items: center;  
-  background-image: url(./assets/pexels-steve.jpg) ;
-  background-size: cover;          /* Hace que la imagen cubra todo el espacio */
-  background-position: center;     /* Centra la imagen en la pantalla */
-  background-repeat: no-repeat;    /* Evita que la imagen se repita en mosaico */
-  background-attachment: fixed;    /* Mantiene el fondo fijo al deslizar la página */
-  height: 100vh;                   /* Ocupa el 100% de la altura de la pantalla */
-  margin: 0;
+  align-items: center; 
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(231, 168, 78, 0.25),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(62, 142, 126, 0.20),
+      transparent 35%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(39, 76, 86, 0.18) 0px,
+      rgba(39, 76, 86, 0.18) 3px,
+      transparent 3px,
+      transparent 20px
+    ),
+    linear-gradient(
+      135deg,
+      #887f68,
+      #dfcfaf
+    );
+
+  min-height: 100vh; 
+   background-size: 100% 100%, 100% 100%, 20px 20px, 100% 100%;
+
+  animation: retroBackground 12s ease-in-out infinite alternate;
 }
   
+@keyframes retroBackground {
+  0% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      0px 0px,
+      0% 0%;
+  }
+
+  50% {
+    background-position:
+      20% 30%,
+      70% 50%,
+      10px 10px,
+      50% 50%;
+  }
+
+  100% {
+    background-position:
+      80% 70%,
+      20% 30%,
+      20px 20px,
+      100% 100%;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
-
+  
 }
+
 
 .acercade {
   max-width: 1100px;
@@ -26,8 +76,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 80px;
-  background-color: #3e8e7ee5;
-    box-shadow: 0 0 30px 30px #3e8e7ee5;
+  background-color: #788d89e5;
+    box-shadow: 0 0 30px 30px #788d89e5;
 }
 
 .acercade-texto {
@@ -129,17 +179,87 @@ button:hover{
 }
 
 .project-card {
-  min-height: 250px;
-  padding: 30px;
-
+  position: relative;
+  overflow: hidden;
   background: #F6E2B3;
+
   border: 3px solid #274C56;
   border-radius: 18px;
-
   box-shadow: 8px 8px 0 #274C56;
-
   transform-style: preserve-3d;
-  transition: transform 0.15s ease-out;
-
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.2s ease;
   cursor: pointer;
+}
+
+.project-card:hover {
+  box-shadow: 12px 12px 0 #274C56;
+}
+
+.project-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.project-card:hover .project-shine {
+  opacity: 1;
+}
+
+.project-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 3px solid #274C56;
+  background: #274C56;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+ filter: blur(5px);
+  transform: scale(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  filter: blur(0);
+  transform: scale(1.08);
+}
+
+/* informacion*/
+.project-info {
+  padding: 25px;
+}
+
+.project-info h3 {
+  margin-top: 0;
+
+  color: #274C56;
+}
+
+.project-info p {
+  color: #3E8E7E;
+}
+
+.project-info a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #D96C2C;
+  color: #F6E2B3;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.project-info a:hover {
+  transform: translateY(-3px);
 }

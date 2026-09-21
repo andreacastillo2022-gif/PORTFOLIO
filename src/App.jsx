@@ -6,6 +6,7 @@ import { FaHandshake } from "react-icons/fa6";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { PiGearSixBold } from "react-icons/pi";
 import ProjectCard from "./tarjeta";
+import color from "./assets/color.png";
 
 function App() {
   
@@ -118,6 +119,7 @@ function App() {
       <ProjectCard
         title="Selector de colores"
         description="Una herramienta para obtener códigos de colores."
+        image={color}
       />
 
       <ProjectCard
