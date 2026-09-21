@@ -4,21 +4,12 @@
     src:url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
-    gap: 40px;
-    justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-
 :root {
+    
+ width: 100%;
   --card-border-color: #080a0a;
-  --card-border-thickness: 10px;
-  --card-border-radius: 10px;
+  --card-border-thickness: 6px;
+  --card-border-radius: 15px;
 
   --bars-background: #dce0e2;
 
@@ -45,16 +36,22 @@
   --inner-borders-thickness: 3px;
 }
 
-/* CARTA*/
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 .project-card {
-  font-family: lora;
+  font-family: Lora;
   position: relative;
   width: 320px;
-  min-height: 450px;
+  max-height: 500px;
   background-image: url(./assets/marcelabr-texture-1818072.jpg);
   border-radius: var(--card-border-radius);
-  /* MARCO GRUESO INTERIOR */
   box-shadow:
     inset 0 0 0 var(--card-border-thickness)
     var(--card-border-color);
@@ -67,8 +64,19 @@
   cursor: pointer;
   overflow: visible;
   text-transform: none;
-  border: 3px solid #080a0a;
+  border: 10px solid #080a0a;
+}
 
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 320px);
+  }
+}
+
+@media (max-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 320px;
+  }
 }
 
 .project-shine {
@@ -128,7 +136,7 @@ box-shadow:
   background: #274C56;
   /* MARCO ROJO */
  box-shadow:
-    0 0 0 2px #97aaa0,
+    0 0 0 2px #27332d,
     inset 2px 2px 0 #dce0e2,
     inset -3px -3px 0 #aa9393,
     inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
@@ -141,7 +149,7 @@ box-shadow:
   object-fit: cover;
   display: block;
   filter: blur(5px);
-  transform: scale(1.05);
+  transform: scale(0.90);
   transition:
     filter 0.4s ease,
     transform 0.4s ease;
@@ -182,16 +190,16 @@ box-shadow:
   align-items: center;
   margin: 4px 5px;
   margin-bottom: 4px;
-  padding: 7px 8px;
+  padding: 8px 14px;
   background: var(--inner-borders-color-title);
-  color: #0e1011;
-  font-size: 12px;
+  color: #15181a;
+  font-size: 15px;
   font-weight: bold;
   letter-spacing: 1px;
   box-shadow:
   0 0 0 2px #97aaa0,
-    inset 2px 2px 0 #333436,
-    inset 0 0 6px 4px rgba(34, 34, 34, 0.55);
+    inset 2px 1px 4px #09090a,
+    inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
   border-radius: 10px / 25px;
 }
 
@@ -201,7 +209,8 @@ box-shadow:
 .card-description {
   margin: 12px;
   margin-top: 2px;
-  padding: 10px;
+  margin-bottom: 2px;
+  padding: 15px;
   padding-bottom: 50px;
   color: #274C56;
   background: var(--bars-background);
@@ -211,13 +220,14 @@ box-shadow:
   word-spacing: 2px;
   text-align: left;
   text-decoration: wavy;
-   box-shadow:
+  box-shadow:
     0 0 0 2px #97aaa0,
     inset -3px -3px 0 #817777,
     inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
   text-transform: none;
   border-radius: 1%;
  font-family: lora;
+ overflow: visible;
 }
 
 .card-description p {
@@ -228,15 +238,25 @@ box-shadow:
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 30px;
+  padding: 0px 10px;
+  padding-bottom: 0;
   margin: 0;
   background: var(--card-border-color);
   color: #948282;
   font-size: 10px;
   font-weight: bold;
   letter-spacing: 1px;
-  border: #080a0a;
-  border-radius: -50% -50% 0 0;
+  border: 3px solid #080a0a;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.card-year {
+  align-self: flex-end;
 }
 
 .card-link {

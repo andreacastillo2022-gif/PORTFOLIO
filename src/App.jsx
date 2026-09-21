@@ -7,7 +7,7 @@ import { LiaCertificateSolid } from "react-icons/lia";
 import { PiGearSixBold } from "react-icons/pi";
 import ProjectCard from "./tarjeta";
 import color from "./assets/color.png";
-import "./tarjeta.css";
+import "./tarjeta_uno.css";
 
 function App() {
   
@@ -121,12 +121,15 @@ function App() {
         title="Selector de colores"
         description="Con esta herramienta podrás encontrar todas las combinaciones de colores existentes.
         Ideal para artistas que necesiten la teoria del color para crear sus mejores obras"
+        type= "React - Typescript"
         image={color}
       />
 
       <ProjectCard
-        title="Juego Atari"
-        description="Mi primer juego desarrollado con JavaScript."
+        title="proyecto2"
+        description="Mi primer desarrollo con JavaScript.
+        Lorem ipsum dolor sit amet consectetur adipiscing elit tempor, cubilia condimentum tincidunt urna sed dictum tortor"
+        type=" JavaScript - Html"
       />
 
       <ProjectCard

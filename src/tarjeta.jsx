@@ -90,8 +90,12 @@ function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
 
       {/* FOOTER */}
       <div className="card-footer">
-        <span>ANDY</span>
-        <span>2026</span>
+        <div className="card-info">
+            <span>Andrea Castillo</span>
+            <span>Proyecto #1</span>
+            </div>
+
+            <span className="card-year">2026</span>
       </div>
 
       {/* LINK */}
