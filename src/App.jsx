@@ -11,7 +11,6 @@ function App() {
 
   return (
     <>
-
       <header>
         <nav>
           <ul className="nav">
@@ -53,14 +52,15 @@ function App() {
 
       <section className="acercade" id="presentation">
         <div className="acercade-texto">
-          <h1>Mi nombre es Andrea</h1>
+          <h1>Andrea Agustina Castillo</h1>
           <span className="tag">SOBRE MÍ</span>
-          <p>Empecé en el desarrollo web en 2025, me apasiona la programación y aprender nuevas tecnologías.
-            Activamente estudiando React y trabajando en proyectos personales para mi portfolio.
-            Me gusta crear cosas y ver si funcionan, mejorando mis habilidad y uso de la creatividad.
+          <p>Empecé en el desarrollo web en 2025, me apasiona la programación y aprender nuevas tecnologías.<br />
+            Actualmente trabajando en proyectos personales para mi portfolio personal.
+            Me gusta crear cosas y ver si funcionan, mejorando mi habilidad y uso de la creatividad; Aprovechando al máximo mis conocimientos.
             No solo las diplomaturas me enseñaron lo que sé, sino tambien mi curiosidad constante.
           </p>
-          <p>Si te interesa el trabajo creativo y el constante aprendizaje, no dudes en contactarme! </p>
+          <p>Si te interesa el trabajo creativo y el constante crecimiento, no dudes en contactarme! </p>
+          <button>Ir a Contacto </button> 
         </div>
 
         
@@ -102,10 +102,37 @@ function App() {
 
           <img src={andrea} alt="Foto de Andrea" />
 
-        </div>
+
+        </div><p id='seguí'>Seguí bajando para ver mis proyectos!</p>
+      
       </section>
 
-    
+  
+    <section className="projects">
+      <h2>Mis proyectos</h2>
+
+      <div className="projects-grid">
+
+        <div className="project-card">
+          <h3>Selector de colores</h3>
+          <p>Una herramienta para obtener códigos de colores a partir de imágenes.</p>
+          <button>Ver proyecto</button>
+        </div>
+
+        <div className="project-card">
+          <h3>Juego Atari</h3>
+          <p>Un pequeño juego desarrollado con HTML, CSS y JavaScript.</p>
+          <button>Ver proyecto</button>
+        </div>
+
+        <div className="project-card">
+          <h3>Proyecto 3</h3>
+          <p>Descripción del proyecto.</p>
+          <button>Ver proyecto</button>
+        </div>
+
+       </div>
+      </section>
 
     </>
     

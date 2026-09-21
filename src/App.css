@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Roboto:wght@300;400;500&display=swap');
 #root{
   display: flex;
   flex-direction: column;
@@ -34,21 +35,43 @@ body {
 }
 
 .tag {
+  margin-top: 5px;
   font-size: 0.8rem;
   letter-spacing: 3px;
   color: #272138;
   font-weight: 600;
 }
 
+.acercade-texto h1 {
+  font-family: 'Bree Serif', serif;
+  font-size: 3rem;
+  color: #F6E2B3;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+ }
 
-.acercade p {
-  color: #aaa;
-  line-height: 1.8;
-  font-size: 1.05rem;
-  margin-bottom: 18px;
+.acercade-texto p {
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: #F6E2B3;
+  max-width: 700px;
+  margin: 10px auto;
   text-align: justify;
 }
 
+button{
+  background-color: #e7a84e;
+  border-radius: 15px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+button:hover{
+  transform: scale(1.10);
+  cursor: pointer;
+  box-shadow:0 0 15px #251b15;
+}
 
 .acercade-foto {
   position: relative;
@@ -97,4 +120,17 @@ body {
   box-shadow:
     0 0 15px #f0a376,
     0 0 40px #D96C2C;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  padding: 25px;
+  border: 2px solid #274C56;
+  border-radius: 15px;
+  background: #F6E2B3;
 }
