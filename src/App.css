@@ -125,12 +125,21 @@ button:hover{
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 30px;
 }
 
 .project-card {
-  padding: 25px;
-  border: 2px solid #274C56;
-  border-radius: 15px;
+  min-height: 250px;
+  padding: 30px;
+
   background: #F6E2B3;
+  border: 3px solid #274C56;
+  border-radius: 18px;
+
+  box-shadow: 8px 8px 0 #274C56;
+
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+
+  cursor: pointer;
 }

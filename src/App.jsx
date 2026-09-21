@@ -5,6 +5,7 @@ import { BiSolidSmile } from "react-icons/bi";
 import { FaHandshake } from "react-icons/fa6";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { PiGearSixBold } from "react-icons/pi";
+import ProjectCard from "./tarjeta";
 
 function App() {
   
@@ -109,30 +110,29 @@ function App() {
 
   
     <section className="projects">
+
       <h2>Mis proyectos</h2>
 
       <div className="projects-grid">
 
-        <div className="project-card">
-          <h3>Selector de colores</h3>
-          <p>Una herramienta para obtener códigos de colores a partir de imágenes.</p>
-          <button>Ver proyecto</button>
-        </div>
+      <ProjectCard
+        title="Selector de colores"
+        description="Una herramienta para obtener códigos de colores."
+      />
 
-        <div className="project-card">
-          <h3>Juego Atari</h3>
-          <p>Un pequeño juego desarrollado con HTML, CSS y JavaScript.</p>
-          <button>Ver proyecto</button>
-        </div>
+      <ProjectCard
+        title="Juego Atari"
+        description="Mi primer juego desarrollado con JavaScript."
+      />
 
-        <div className="project-card">
-          <h3>Proyecto 3</h3>
-          <p>Descripción del proyecto.</p>
-          <button>Ver proyecto</button>
-        </div>
+      <ProjectCard
+        title="Portfolio"
+        description="Mi portfolio personal desarrollado con React."
+      />
 
-       </div>
-      </section>
+      </div>
+
+    </section>
 
     </>
     
