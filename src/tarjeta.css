@@ -36,6 +36,8 @@
   --inner-borders-thickness: 3px;
 }
 
+/*todas la cartas*/
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 320px);
@@ -50,11 +52,7 @@
   position: relative;
   width: 320px;
   max-height: 500px;
-  
   border-radius: var(--card-border-radius);
-  box-shadow:
-    inset 0 0 0 var(--card-border-thickness)
-    var(--card-border-color);
   padding: var(--card-border-thickness);
   box-sizing: border-box;
   transform-style: preserve-3d;
@@ -64,13 +62,40 @@
   cursor: pointer;
   overflow: visible;
   text-transform: none;
+  
+}
+
+
+
+/*magic*/ .carta-color {
+  background: url(./assets/marcelabr-texture-1818072.jpg);
   border: 10px solid #080a0a;
-}
+  box-shadow:
+    inset 0 0 0 var(--card-border-thickness)
+    var(--card-border-color);
+  }
 
-.carta-color{
-  background-image: url(./assets/marcelabr-texture-1818072.jpg);
+/*yugioh*/
 
+.juego-atari{
+  margin-top: 14px;
+  max-width: 300px;
+  max-height: 460px;
+  background:
+    linear-gradient(rgba(168, 107, 66, 0.35), rgba(90, 62, 38, 0.671)),
+    url(./assets/yugioh.jpg);
+  border-radius: 2px;
+  box-shadow:
+  inset 0 0 8px 2px #918984,
+
+  0 0 0 3px #363030,
+  0 0 0 6px #3b3532,
+  0 0 0 8px #352f2d,
+
+  0 0 4px 9px #2e2725,
+  0 0 10px 14px #25130e;
 }
+/*efecto para todas las cartas*/
 
 @media (max-width: 1100px) {
   .projects-grid {
@@ -97,7 +122,7 @@
   opacity: 1;
 }
 
-.card-header {
+.carta-color .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,8 +131,7 @@
   margin-bottom: 0;
   padding: 3px 8px;
   color: #274C56;
-  /* MARCO ROJO */
-box-shadow:
+  box-shadow:
   0 0 0 2px #97aaa0,
     inset 2px 2px 0 #050607,
     inset 0 0 6px 4px rgba(0, 0, 0, 0.55);
@@ -117,7 +141,7 @@ box-shadow:
   z-index: 2;
 }
 
-.card-header h3 {
+.carta-color .card-header h3 {
   margin: 0 3px;
   font-size: 17px;
   font-weight: 800;
@@ -126,11 +150,37 @@ box-shadow:
   text-transform: none;
 }
 
-.card-symbol {
+.juego-atari .card-header h3 {
+  margin: 3px 3px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.juego-atari .card-header { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:   
+    inset -4px -4px 0 #221d14,
+    inset 4px 4px 0 #7e715b,
+    inset 0 0 4px 4px rgba(138, 111, 99, 0.55);
+  margin: 10px;
+  margin-bottom: 25px;
+  padding: 8px;
+  opacity: 80%;
+}
+
+.carta-color .card-symbol {
   font-size: 20px;
 }
 
-.project-image {
+/*lo mismo todas las cartas*/
+
+.carta-color .project-image {
   position: relative;
   width: calc(100% - 23px);
   height: 210px;
@@ -145,6 +195,26 @@ box-shadow:
     inset -3px -3px 0 #aa9393,
     inset 0 0 4px 4px rgba(0, 0, 0, 0.55);
   box-sizing: border-box;
+}
+
+.juego-atari .project-image {
+  position: relative;
+  width: calc(100% - 50px);
+  height: 220px;
+  margin-left: 24px;
+  margin-right: 12px;
+  margin-top: 4px;
+  overflow: hidden;
+  background: #274C56;
+  box-shadow:
+
+    0 0 4px 2px #1d1a19,
+
+    inset -4px -4px 0 #1b1a1a,
+    inset 4px 4px 0 #333128,
+    inset 0 2px 4px 6px rgba(24, 15, 11, 0.55);
+    
+    box-sizing: border-box;
 }
 
 .project-image img {
@@ -188,7 +258,7 @@ box-shadow:
 
 /* BARRA TYPE */
 
-.card-type {
+.carta-color .card-type {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -210,7 +280,7 @@ box-shadow:
 
 /* DESCRIPCIÓN */
 
-.card-description {
+.carta-color .card-description {
   margin: 12px;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -234,11 +304,44 @@ box-shadow:
  overflow: visible;
 }
 
+
+.juego-atari .card-description {
+   margin: 12px;
+  margin-top: 12px;
+  margin-bottom: 2px;
+  padding: 15px;
+  padding-bottom: 20px;
+  color: #274C56;
+  background: rgb(218, 196, 178);
+  font-size: 10px;
+  line-height: 1.4;
+  font-style: italic;
+  word-spacing: 2px;
+  text-align: left;
+  text-decoration: wavy;
+  box-shadow:
+    0 0 0 2px #4e4335,
+    inset -3px -3px 0 #88663e,
+    inset 4px 4px 0 rgba(122, 72, 32, 0.699);
+  text-transform: none;
+  border-radius: 1%;
+  font-family: lora;
+  overflow: visible;
+  opacity: 60%;
+}
+
+.juego-atari .card-description span{
+  font-family: lora;
+  font-style: oblique;
+  text-transform: uppercase;
+  text-decoration: none
+}
+
 .card-description p {
   margin: 0;
 }
 
-.card-footer {
+.carta-color .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -251,6 +354,19 @@ box-shadow:
   font-weight: bold;
   letter-spacing: 1px;
   border: 3px solid #080a0a;
+}
+
+.juego-atari .card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: right;
+  padding: 0px 10px;
+  padding-bottom: 0;
+  margin: 0;
+   color: #1d1919;
+  font-size: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .card-info {

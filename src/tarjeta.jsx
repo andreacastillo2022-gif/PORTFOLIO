@@ -79,12 +79,24 @@ function ProjectCard({ title, description, image, link, type, className }) {
 
       {/* TIPO */}
       <div className="card-type">
+        {!className?.includes("juego-atari") && (
+        <>
         <span>{type}</span>
         <span>✦</span>
+        </>
+        )}
       </div>
 
       {/* DESCRIPCIÓN */}
       <div className="card-description">
+
+        {className?.includes("juego-atari") && (
+        <>
+        <span className="atari-type">{type}</span>
+        <span className="card-symbol">✦</span>
+        </>
+        )}
+
         <p>{description}</p>
       </div>
 

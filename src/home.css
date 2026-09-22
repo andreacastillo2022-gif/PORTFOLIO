@@ -8,7 +8,7 @@
   background:
     radial-gradient(
       circle at 20% 20%,
-      rgba(231, 168, 78, 0.25),
+      rgba(36, 30, 30, 0.25),
       transparent 35%
     ),
     radial-gradient(
@@ -25,14 +25,15 @@
     ),
     linear-gradient(
       135deg,
-      #887f68,
+      #f1ebdc,
       #dfb9af
     );
 
   min-height: 100vh; 
-   background-size: 100% 100%, 100% 100%, 20px 20px, 100% 100%;
+  background-size: 100% 100%, 100% 100%, 20px 20px, 100% 100%;
   width: 100%;
   animation: retroBackground 12s ease-in-out infinite alternate;
+  
 }
   
 @keyframes retroBackground {
@@ -69,35 +70,41 @@ body {
 
 
 .acercade {
-  max-width: 1100px;
+  max-width:1200px;
   margin: 40px auto;
   padding: 40px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 80px;
-  background-color: #788d89e5;
-    box-shadow: 0 0 30px 30px #788d89e5;
+  background-color: #686969e5;
+    border: 5px solid #374242;
+  box-shadow:
+    0 0 0 3px #b8aa8c,
+    0 0 10px 7px #394949,
+    inset 0 10px 12px rgba(75, 60, 60, 0.6);
 }
 
 .acercade-texto {
-  max-width: 650px;
+  max-width: 500px;
 }
 
 .tag {
   margin-top: 5px;
   font-size: 0.8rem;
   letter-spacing: 3px;
-  color: #272138;
-  font-weight: 600;
+  color: #cfced1;
+  font-weight: 400;
+  
 }
 
 .acercade-texto h1 {
   font-family: 'Bree Serif', serif;
   font-size: 3rem;
-  color: #F6E2B3;
+  color: #221f1f;
   letter-spacing: 1px;
   margin-bottom: 8px;
+
  }
 
 .acercade-texto p {
@@ -106,8 +113,10 @@ body {
   line-height: 1.9;
   color: #F6E2B3;
   max-width: 700px;
-  margin: 10px auto;
-  text-align: justify;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 3px;
+
 }
 
 button{
@@ -168,7 +177,16 @@ button:hover{
   border-color: #D96C2C;
 
   box-shadow:
-    0 0 15px #f0a376,
+    0 0 15px #82c24d,
     0 0 40px #D96C2C;
+}
+
+.titulo_dos{
+  font-size: 30px;
+  text-align: center; 
+  font-family: fantasy;
+  letter-spacing: 3px;
+  -webkit-text-stroke: 1px rgb(189, 179, 179);
+ 
 }
 
