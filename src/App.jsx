@@ -123,6 +123,7 @@ function App() {
         Ideal para artistas que necesiten la teoria del color para crear sus mejores obras"
         type= "React - Typescript"
         image={color}
+        className= "carta-color"
       />
 
       <ProjectCard
@@ -130,6 +131,7 @@ function App() {
         description="Mi primer desarrollo con JavaScript.
         Lorem ipsum dolor sit amet consectetur adipiscing elit tempor, cubilia condimentum tincidunt urna sed dictum tortor"
         type=" JavaScript - Html"
+        className= "juego-atari"
       />
 
       <ProjectCard

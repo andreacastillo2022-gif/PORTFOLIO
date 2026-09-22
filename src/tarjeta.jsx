@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
+function ProjectCard({ title, description, image, link, type, className }) {
   const [transform, setTransform] = useState("");
   const [shine, setShine] = useState({
     x: 50,
@@ -38,12 +38,12 @@ function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
 
   return (
 
-    <div
-      className="project-card"
-      style={{ transform }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+     <div
+        className={`project-card ${className || ""}`}
+        style={{ transform }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
 
       {/* REFLEJO */}
       <div
@@ -110,6 +110,7 @@ function ProjectCard({ title, description, image, link, type = "WEB APP" }) {
     </div>
 
   );
+
 }
 
 export default ProjectCard;
