@@ -1,65 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Roboto:wght@300;400;500&display=swap');
 
+.desktop {
+  min-height: 100vh;
+  width: 100%;
+  background: #008080;
+}
 
 #root{
   display: flex;
   flex-direction: column;
   align-items: center; 
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(36, 30, 30, 0.25),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(62, 142, 126, 0.20),
-      transparent 35%
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(39, 76, 86, 0.18) 0px,
-      rgba(39, 76, 86, 0.18) 3px,
-      transparent 3px,
-      transparent 20px
-    ),
-    linear-gradient(
-      135deg,
-      #f1ebdc,
-      #dfb9af
-    );
-
   min-height: 100vh; 
   background-size: 100% 100%, 100% 100%, 20px 20px, 100% 100%;
   width: 100%;
-  animation: retroBackground 12s ease-in-out infinite alternate;
   
-}
-  
-@keyframes retroBackground {
-  0% {
-    background-position:
-      0% 0%,
-      100% 100%,
-      0px 0px,
-      0% 0%;
-  }
-
-  50% {
-    background-position:
-      20% 30%,
-      70% 50%,
-      10px 10px,
-      50% 50%;
-  }
-
-  100% {
-    background-position:
-      80% 70%,
-      20% 30%,
-      20px 20px,
-      100% 100%;
-  }
 }
 
 body {
@@ -68,25 +22,76 @@ body {
   
 }
 
+.window {
+  position: absolute;
 
-.acercade {
-  max-width:1200px;
-  margin: 40px auto;
-  padding: 40px 40px;
+  width: 600px;
+  max-height: 600px;
+
+  background: #c0c0c0;
+
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+
+  box-shadow: 2px 2px 0 #000;
+}
+
+.window-titlebar {
+  height: 30px;
+
+  background: #000080;
+  color: white;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 80px;
-  background-color: #686969e5;
-    border: 5px solid #374242;
-  box-shadow:
-    0 0 0 3px #b8aa8c,
-    0 0 10px 7px #394949,
-    inset 0 10px 12px rgba(75, 60, 60, 0.6);
+
+  padding: 0 4px;
+
+  box-sizing: border-box;
+
+  font-family: "MS Sans Serif", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
 }
 
+.window-buttons {
+  display: flex;
+  gap: 3px;
+}
+
+.window-buttons button {
+  width: 22px;
+  height: 22px;
+
+  padding: 0;
+
+  background: #c0c0c0;
+
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+
+  font-weight: bold;
+
+  line-height: 16px;
+}
+
+.acercade {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  box-sizing: border-box;
+}
 .acercade-texto {
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .tag {
@@ -100,7 +105,7 @@ body {
 
 .acercade-texto h1 {
   font-family: 'Bree Serif', serif;
-  font-size: 3rem;
+  font-size: 1.7rem;
   color: #221f1f;
   letter-spacing: 1px;
   margin-bottom: 8px;
@@ -109,14 +114,13 @@ body {
 
 .acercade-texto p {
   font-family: 'Lora', serif;
-  font-size: 0.9rem;
-  line-height: 1.9;
   color: #F6E2B3;
   max-width: 700px;
   text-align: left;
   text-transform: none;
-  letter-spacing: 3px;
-
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 button{
@@ -134,8 +138,8 @@ button:hover{
 
 .acercade-foto {
   position: relative;
-  width: 240px;
-  height: 240px;
+  width: 180px;
+  height: 180px;
   flex-shrink: 0;
   transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
@@ -190,3 +194,65 @@ button:hover{
  
 }
 
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 42px;
+
+  background: #c0c0c0;
+
+  border-top: 2px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 3px 5px;
+  box-sizing: border-box;
+
+  z-index: 1000;
+}
+
+.start-button {
+  height: 32px;
+
+  padding: 0 12px;
+
+  background: #c0c0c0;
+
+  border: none;
+
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+
+  border-right: 2px solid #555;
+  border-bottom: 2px solid #555;
+
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.taskbar-time {
+  height: 28px;
+
+  min-width: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 2px solid #777;
+  border-left: 2px solid #777;
+
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 13px;
+}
