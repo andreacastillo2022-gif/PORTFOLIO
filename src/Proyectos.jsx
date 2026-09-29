@@ -10,7 +10,7 @@ return(
       <h2 className="titulo_dos">Mis proyectos</h2>
 
       <div className="projects-grid">
-
+       <div className="project-mini">
       <ProjectCard
         title="Selector de colores"
         description="Con esta herramienta podrás encontrar todas las combinaciones de colores existentes.
@@ -33,6 +33,8 @@ return(
         description="Mi portfolio personal desarrollado con React."
       />
 
+      </div>
+      
       </div>
 
     </div>

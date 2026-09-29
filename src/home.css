@@ -3,7 +3,15 @@
 .desktop {
   min-height: 100vh;
   width: 100%;
-  background: #008080;
+  background: #293838;
+    background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(194, 191, 191, 0.185) 0px,
+      rgba(167, 154, 154, 0.274) 1px,
+      transparent 1px,
+      transparent 3px
+    );
 }
 
 #root{
@@ -24,26 +32,23 @@ body {
 
 .window {
   position: absolute;
-
-  width: 600px;
-  max-height: 600px;
-
+  width: min(520px, 90vw);
+  height: min(500px, 75vh);
   background: #c0c0c0;
-
-  border-top: 3px solid white;
-  border-left: 3px solid white;
-
-  border-right: 3px solid #404040;
-  border-bottom: 3px solid #404040;
-
+  border-top: 3px solid rgb(145, 134, 134);
+  border-left: 3px solid rgb(141, 122, 122);
+  border-right: 2px solid #4d4747;
+  border-bottom: 2px solid #404040;
   box-shadow: 2px 2px 0 #000;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .window-titlebar {
   height: 30px;
 
-  background: #000080;
-  color: white;
+  background: #332c42;
+  color: rgb(136, 135, 135);
 
   display: flex;
   align-items: center;
@@ -53,7 +58,7 @@ body {
 
   box-sizing: border-box;
 
-  font-family: "MS Sans Serif", sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 14px;
 }
@@ -66,39 +71,51 @@ body {
 .window-buttons button {
   width: 22px;
   height: 22px;
-
   padding: 0;
-
   background: #c0c0c0;
-
   border-top: 2px solid white;
   border-left: 2px solid white;
-
   border-right: 2px solid #555;
   border-bottom: 2px solid #555;
-
   font-weight: bold;
-
   line-height: 16px;
 }
 
 .acercade {
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
-.acercade-texto {
-  max-width: 300px;
+
+.acercade::-webkit-scrollbar {
+  width: 16px;
 }
+
+.acercade::-webkit-scrollbar-track {
+  background: #f8f5f5;
+  border-left: 2px solid #413b3b;
+}
+
+.acercade::-webkit-scrollbar-thumb {
+  background: #bdbaba;
+  border-top: 2px solid rgb(109, 103, 103);
+  border-left: 1px solid rgb(243, 242, 242);
+  border-right: 1px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
 
 .tag {
   margin-top: 5px;
   font-size: 0.8rem;
   letter-spacing: 3px;
-  color: #cfced1;
+  color: #161518;
   font-weight: 400;
   
 }
@@ -112,28 +129,49 @@ body {
 
  }
 
-.acercade-texto p {
-  font-family: 'Lora', serif;
-  color: #F6E2B3;
+ .acercade-texto{
+  width: 100%;
+  box-sizing: border-box;
+ }
+
+.acercade-texto p { 
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #35322d;
   max-width: 700px;
-  text-align: left;
+  text-align: justify;
   text-transform: none;
   font-size: 0.75rem;
   line-height: 1.5;
   letter-spacing: 1px;
 }
 
-button{
-  background-color: #e7a84e;
-  border-radius: 15px;
-  padding: 10px;
-  border: 2px solid black;
+.desktop-icon svg {
+  width: 42px;
+  height: 42px;
 }
 
-button:hover{
+.desktop-icon span {
+  text-align: center;
+}
+
+.desktop-icon {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: white;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
   transform: scale(1.10);
   cursor: pointer;
-  box-shadow:0 0 15px #251b15;
 }
 
 .acercade-foto {
@@ -146,6 +184,7 @@ button:hover{
 }
 
 .acercade-foto img {
+  max-width: 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -202,9 +241,9 @@ button:hover{
   width: 100%;
   height: 42px;
 
-  background: #c0c0c0;
+  background: #865a80;
 
-  border-top: 2px solid white;
+  border-top: 2px solid rgb(70, 43, 73);
 
   display: flex;
   align-items: center;
@@ -215,6 +254,7 @@ button:hover{
 
   z-index: 1000;
 }
+
 
 .start-button {
   height: 32px;
@@ -250,9 +290,143 @@ button:hover{
   border-top: 2px solid #777;
   border-left: 2px solid #777;
 
-  border-right: 2px solid white;
-  border-bottom: 2px solid white;
+  border-right: 2px solid rgb(83, 66, 66);
+  border-bottom: 2px solid rgb(80, 61, 61);
 
   font-family: "MS Sans Serif", sans-serif;
   font-size: 13px;
+}
+
+.projects-window {
+  position: absolute;
+  width: 850px;
+  height: 650px;
+
+  background: #c0c0c0;
+
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+
+  box-shadow: 2px 2px 0 #000;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  z-index: 100;
+}
+
+.projects-content {
+  width: 100%;
+  height: calc(100% - 30px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .desktop {
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-bottom: 42px;
+  }
+
+  /* ICONOS DEL ESCRITORIO */
+
+  .desktop-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 80px);
+    gap: 25px;
+    padding: 15px;
+    width: auto;
+  }
+
+  .desktop-icon {
+    width: 80px;
+    font-size: 12px;
+  }
+
+  .desktop-icon svg {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  /* VENTANA */
+
+  .window {
+    width: calc(100vw - 20px);
+    max-width: none;
+    height: calc(100vh - 70px);
+
+    left: 10px !important;
+    top: 10px !important;
+
+    box-sizing: border-box;
+  }
+
+
+  /* CONTENIDO DE LA VENTANA */
+
+  .acercade {
+    padding: 15px;
+    gap: 20px;
+  }
+
+
+  /* TEXTO */
+
+  .acercade-texto h1 {
+    font-size: 1.4rem;
+  }
+
+  .acercade-texto p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+
+
+  /* FOTO */
+
+  .acercade-foto {
+    width: 150px;
+    height: 150px;
+
+    margin: 0 auto;
+  }
+
+
+  /* BOTÓN */
+
+  .acercade-texto button {
+    width: 100%;
+    max-width: 220px;
+  }
+
+
+  /* TASKBAR */
+
+  .taskbar {
+    height: 42px;
+  }
+
+  .start-button {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .taskbar-time {
+    min-width: 60px;
+    font-size: 11px;
+  }
+
 }

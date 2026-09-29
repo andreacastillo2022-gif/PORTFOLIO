@@ -38,20 +38,33 @@
 
 /*todas la cartas*/
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 320px);
-  gap: 50px;
-  justify-content: center;
+.projects-window-content {
   width: 100%;
+  height: calc(100% - 30px);
+  overflow-y: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
-.project-card {
+.projects-window .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 145px);
+  gap: 15px;
+  justify-content: center;
+  align-items: start;
+}
+
+
+.project-mini {
+  width: 145px;
+  height: 225px;
+  overflow: visible;
+}
+
+.project-card {  
+  width: 320px;
   font-family: Lora;
   position: relative;
-  width: 320px;
-  max-height: 500px;
   border-radius: var(--card-border-radius);
   padding: var(--card-border-thickness);
   box-sizing: border-box;
@@ -64,8 +77,6 @@
   text-transform: none;
   
 }
-
-
 
 /*magic*/ .carta-color {
   background: url(./assets/marcelabr-texture-1818072.jpg);
@@ -101,11 +112,19 @@
   .projects-grid {
     grid-template-columns: repeat(2, 320px);
   }
+
+  .projects-window .projects-grid {
+    grid-template-columns: repeat(4, 145px);
+  }
 }
 
 @media (max-width: 720px) {
   .projects-grid {
     grid-template-columns: 320px;
+  }
+
+  .projects-window .projects-grid {
+    grid-template-columns: repeat(2, 145px);
   }
 }
 
@@ -231,7 +250,6 @@
 
 .project-card:hover .project-image img {
   filter: blur(0);
-  transform: scale(1.1);
 }
 
 
@@ -383,4 +401,37 @@
   position: absolute;
   inset: 0;
   z-index: 30;
+}
+
+
+/* GRID DE MINI CARDS */
+.projects-content .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 145px);
+  gap: 15px;
+  justify-content: center;
+  align-items: start;
+}
+
+
+/* ESPACIO QUE OCUPA CADA MINI CARD */
+.projects-content .project-mini {
+  width: 145px;
+  height: 225px;
+  position: relative;
+}
+
+
+/* LA CARD ORIGINAL SE REDUCE */
+.projects-content .project-mini .project-card {
+  width: 320px;
+  margin: 0;
+  transform: scale(0.45);
+  transform-origin: top left;
+}
+
+
+/* IMPORTANTE: EL HOVER NO LA AGRANDA GIGANTE */
+.projects-content .project-mini .project-card:hover {
+  transform: scale(0.45);
 }

@@ -1,24 +1,37 @@
 import './home.css';
 import andrea from "./assets/andrea.jpg";
 import "./navbar.css";
-import { BiSolidSmile } from "react-icons/bi";
-import { FaHandshake } from "react-icons/fa6";
-import { LiaCertificateSolid } from "react-icons/lia";
-import { PiGearSixBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FileFind3, Msnp32FolderIcon, Awfxcg321304 } from "@react95/icons";
+import Projects from "./Proyectos.jsx";
+import './tarjeta.css';
 
 
 function Home() {
 
 //*que la ventana se mueva*//  
 const [aboutOpen, setAboutOpen]= useState(true);
+const [projectsOpen, setProjectsOpen] = useState(false);
+
+
+//*que se meuav proyectos*//
+const [projectsPosition, setProjectsPosition] = useState({
+  x: 350,
+  y: 120
+});
+const [projectsDragging, setProjectsDragging] = useState(false);
+const [projectsOffset, setProjectsOffset] = useState({
+  x: 0,
+  y: 0
+});
+
+//*que se mueva aboutme*//
 const [position, setPosition] = useState({
   x: 250,
   y: 80
 });
 const [dragging, setDragging] = useState(false);
-
 const [offset, setOffset] = useState({
   x: 0,
   y: 0
@@ -26,16 +39,24 @@ const [offset, setOffset] = useState({
 
 useEffect(() => {
   const handleMouseMove = (e) => {
-    if (!dragging) return;
+    if (dragging){
 
     setPosition({
       x: e.clientX - offset.x,
       y: e.clientY - offset.y
-    });
-  };
+    });}
+
+    if (projectsDragging) {
+    setProjectsPosition({
+      x: e.clientX - projectsOffset.x,
+      y: e.clientY - projectsOffset.y
+      });
+    }
+};
 
   const handleMouseUp = () => {
-    setDragging(false);
+  setDragging(false);
+  setProjectsDragging(false);
   };
 
   window.addEventListener("mousemove", handleMouseMove);
@@ -45,7 +66,7 @@ return () => {
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
   };
-}, [dragging, offset]);
+}, [dragging, offset, projectsDragging,projectsOffset]);
 
 
 return (
@@ -54,19 +75,26 @@ return (
     <>
         <div className="desktop-icons">
 
-          <Link className="desktop-icon" to="/projects">
-            <PiGearSixBold />
+          <button
+            className="desktop-icon"
+            onClick={() => setProjectsOpen(true)}>
+            <Msnp32FolderIcon variant="32x32_4"/>
             <span>Proyectos</span>
-          </Link>
+          </button>
 
           <Link className="desktop-icon" to="/projects">
-            <LiaCertificateSolid />
+            <FileFind3 variant="32x32_4"/>
             <span>Certificados</span>
           </Link>
 
           <Link className="desktop-icon" to="/contact">
-            <FaHandshake />
+            <Awfxcg321304 variant="32x32_4"/>
             <span>Contacto</span>
+          </Link>
+
+          <Link className="desktop-icon" to="/home.jsx">
+            <Awfxcg321304 variant="32x32_4"/>
+            <span>Sobre Mí</span>
           </Link>
 
           </div>
@@ -106,7 +134,6 @@ return (
             No solo las diplomaturas me enseñaron lo que sé, sino tambien mi curiosidad constante.
           </p>
           <p>Si te interesa el trabajo creativo y el constante crecimiento, no dudes en contactarme! </p>
-          <button>Ir a Contacto </button> 
         </div>
 
         
@@ -150,6 +177,35 @@ return (
         </div>
       </section>
       </div>)}
+
+
+{projectsOpen && (
+      <div className="projects-window" style={{
+        left: `${projectsPosition.x}px`,
+        top: `${projectsPosition.y}px`}}>
+
+      <div className="window-titlebar"onMouseDown={(e) =>{setProjectsDragging(true); setProjectsOffset({
+          x: e.clientX - projectsPosition.x,
+          y: e.clientY - projectsPosition.y
+          });
+          }}>
+
+          <span>📁 Proyectos</span>
+
+          <div className="window-buttons">
+
+              <button onMouseDown={(e) => e.stopPropagation()} onClick={() => setProjectsOpen(false)}>_</button>
+              <button onMouseDown={(e) => e.stopPropagation()} onClick={() => setProjectsOpen(false)}>□</button>
+              <button onMouseDown={(e) => e.stopPropagation()} onClick={() => setProjectsOpen(false)}>×</button>
+          </div>
+        </div>
+
+        <div className="projects-content">
+             <Projects />
+        </div>
+
+      </div>
+)}
 
       <div className="taskbar">
           <button className="start-button">
