@@ -300,12 +300,12 @@ button:hover {
 .projects-window {
   position: absolute;
   width: 850px;
-  height: 650px;
+  height: 700px;
 
-  background: #c0c0c0;
+  background: #4f3f53;
 
-  border-top: 3px solid white;
-  border-left: 3px solid white;
+  border-top: 3px solid rgb(206, 196, 196);
+  border-left: 3px solid rgb(192, 173, 173);
   border-right: 3px solid #404040;
   border-bottom: 3px solid #404040;
 
@@ -318,6 +318,37 @@ button:hover {
 }
 
 .projects-content {
+  width: 100%;
+  height: calc(100% - 30px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+
+
+.contact-window {
+  position: absolute;
+  width: 650px;
+  height: 700px;
+
+  background: #848676;
+
+  border-top: 3px solid rgb(206, 196, 196);
+  border-left: 3px solid rgb(192, 173, 173);
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+
+  box-shadow: 2px 2px 0 #000;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  z-index: 100;
+}
+
+.contact-content {
   width: 100%;
   height: calc(100% - 30px);
   overflow-y: auto;

@@ -6,16 +6,17 @@ import { useState, useEffect } from "react";
 import { FileFind3, Msnp32FolderIcon, Awfxcg321304 } from "@react95/icons";
 import Projects from "./Proyectos.jsx";
 import './tarjeta.css';
-
+import Contacto from "./contacto.jsx";
 
 function Home() {
 
 //*que la ventana se mueva*//  
 const [aboutOpen, setAboutOpen]= useState(true);
 const [projectsOpen, setProjectsOpen] = useState(false);
+const [contactOpen, setContactOpen] = useState(false);
 
 
-//*que se meuav proyectos*//
+//*que se mueva proyectos*//
 const [projectsPosition, setProjectsPosition] = useState({
   x: 350,
   y: 120
@@ -37,6 +38,18 @@ const [offset, setOffset] = useState({
   y: 0
 });
 
+//* que se mueva contacto *//
+const [contactPosition, setContactPosition] = useState({
+  x: 450,
+  y: 150
+});
+const [contactDragging, setContactDragging] = useState(false);
+const [contactOffset, setContactOffset] = useState({
+  x: 0,
+  y: 0
+});
+
+
 useEffect(() => {
   const handleMouseMove = (e) => {
     if (dragging){
@@ -52,11 +65,19 @@ useEffect(() => {
       y: e.clientY - projectsOffset.y
       });
     }
+
+     if (contactDragging) {
+    setContactPosition({
+      x: e.clientX - contactOffset.x,
+      y: e.clientY - contactOffset.y
+      });
+    }
 };
 
   const handleMouseUp = () => {
   setDragging(false);
   setProjectsDragging(false);
+  setContactDragging(false);
   };
 
   window.addEventListener("mousemove", handleMouseMove);
@@ -66,14 +87,14 @@ return () => {
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
   };
-}, [dragging, offset, projectsDragging,projectsOffset]);
+}, [dragging, offset, projectsDragging,projectsOffset, contactDragging, contactOffset]);
 
 
 return (
 
   <main className="desktop">
     <>
-        <div className="desktop-icons">
+      <div className="desktop-icons">
 
           <button
             className="desktop-icon"
@@ -87,17 +108,21 @@ return (
             <span>Certificados</span>
           </Link>
 
-          <Link className="desktop-icon" to="/contact">
+          <button
+            className="desktop-icon"
+            onClick={() => setContactOpen(true)}>
             <Awfxcg321304 variant="32x32_4"/>
             <span>Contacto</span>
-          </Link>
+          </button>
 
-          <Link className="desktop-icon" to="/home.jsx">
+          <button
+            className="desktop-icon"
+            onClick={() => setAboutOpen(true)}>
             <Awfxcg321304 variant="32x32_4"/>
             <span>Sobre Mí</span>
-          </Link>
+          </button>
 
-          </div>
+        </div>
  
     {aboutOpen&& (
       <div className="window about-window" 
@@ -205,6 +230,44 @@ return (
         </div>
 
       </div>
+)}
+
+{contactOpen && (
+  <div
+    className="contact-window"
+    style={{
+      left: `${contactPosition.x}px`,
+      top: `${contactPosition.y}px`
+    }}
+  >
+    <div
+      className="window-titlebar"
+      onMouseDown={(e) => {
+        setContactDragging(true);
+        setContactOffset({
+          x: e.clientX - contactPosition.x,
+          y: e.clientY - contactPosition.y
+        });
+      }}
+    >
+      <span>✉ Contacto</span>
+
+      <div className="window-buttons">
+        <button onMouseDown={(e) => e.stopPropagation()}
+          onClick={() => setContactOpen(false)}>_</button>
+
+        <button onMouseDown={(e) => e.stopPropagation()}
+          onClick={() => setContactOpen(false)}>□</button>
+
+        <button onMouseDown={(e) => e.stopPropagation()}
+          onClick={() => setContactOpen(false)}>×</button>
+      </div>
+    </div>
+
+    <div className="contact-content">
+      <Contacto />
+    </div>
+  </div>
 )}
 
       <div className="taskbar">

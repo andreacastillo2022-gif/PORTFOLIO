@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-function ProjectCard({ title, description, image, link, type, className }) {
-  const [transform, setTransform] = useState("");
+function ProjectCard({ title, description, image, link, type, className, mini = false, }) {
+  
+  const scale = mini ? 0.80 : 1;
+  const [transform, setTransform] = useState(
+    `scale(${scale})`
+  );
+
   const [shine, setShine] = useState({
     x: 50,
     y: 50,
   });
+
 
   const handleMouseMove = (e) => {
     const card = e.currentTarget;
@@ -21,7 +27,7 @@ function ProjectCard({ title, description, image, link, type, className }) {
     const rotateY = ((x - centerX) / centerX) * 8;
 
     setTransform(
-      `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`
+      `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`
     );
 
     setShine({
@@ -32,10 +38,10 @@ function ProjectCard({ title, description, image, link, type, className }) {
 
   const handleMouseLeave = () => {
     setTransform(
-      "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)"
+      `perspective(800px) rotateX(0deg) rotateY(0deg) scale(${scale})`
     );
   };
-
+  
   return (
 
      <div
